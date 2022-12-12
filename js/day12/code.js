@@ -10,14 +10,13 @@ const fileContent = fs.readFileSync(path.resolve("./input.txt"), "utf-8");
 const levels = "SabcdefghijklmnopqrstuvwxyzE";
 const shortestPath = (input, start, end) => {
   const queue = [];
-  const lines = input.split("\n");
-  const map = lines.flatMap((line) => [...line]);
+  const map = [...input.replace(/\n/g, "")];
   map.map((current, index) => {
     if (current === start) {
       queue.push([index, 0]);
     }
   });
-  const row = lines[0].length;
+  const row = input.indexOf("\n");
   const visited = new Set(queue.map(([current]) => current));
   while (queue.length) {
     const [current, steps] = queue.shift();
