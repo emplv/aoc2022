@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { test, solve, min, max } = require("../utils");
+const { test, solve } = require("../utils");
 
 // Path valid if running from "js/day21"
 
